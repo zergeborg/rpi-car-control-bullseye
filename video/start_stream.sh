@@ -4,7 +4,10 @@ trap "echo Received signal. Exiting start_stream PID $$; pkill -P $$; exit 0" IN
 
 . /etc/rpi-car-control/env.sh
 
-if [ $VIDEO_MODE == "v4l2-mjpeg" ]; then
+if [ $VIDEO_MODE == "rpicam-vid" ]; then
+    # Rpicam-vid
+    rpicam-vid -t 0 --nopreview --width ${VIDEO_WIDTH} --height ${VIDEO_HEIGHT} --framerate ${VIDEO_FPS} --codec mjpeg --flush -o - | ../bin/raspivid_mjpeg_server &
+elif [ $VIDEO_MODE == "v4l2-mjpeg" ]; then
     # USB webcam
     v4l2-ctl -d ${V4L2_DEVICE} --set-ctrl=rotate=${VIDEO_ROTATION}
     gst-launch-1.0 v4l2src device=${V4L2_DEVICE} ! image/jpeg,width=${VIDEO_WIDTH},height=${VIDEO_HEIGHT},framerate=${VIDEO_FPS}/1 ! filesink buffer-size=0 location=/dev/stdout | ../bin/raspivid_mjpeg_server &

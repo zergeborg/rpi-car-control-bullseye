@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo mkdir -p /var/run/car
-sudo chown pi /var/run/car
+sudo chown $(whoami) /var/run/car
 
 if [ -e /var/run/car/server.pid ]
 then
@@ -21,7 +21,7 @@ cd $(dirname "$0")
 
 cd ..
 
-#echo "Starting streaming server"
+echo "Starting streaming server"
 cd video/
   ./start_stream.sh &
 #  echo "Starting audio receive server"

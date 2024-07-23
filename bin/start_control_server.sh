@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo mkdir -p /var/run/car
-sudo chown pi /var/run/car
+sudo chown $(whoami) /var/run/car
 
 if [ -e /var/run/car/controls.pid ]
 then

@@ -1,6 +1,6 @@
 # rpi-car-control
 
-Use a Raspberry Pi to drive an RC car from a web page.
+Use a Raspberry Pi to drive an RC car from a web page, running on Rapsberry Pi Os 64-bit (bookworm)
 
 ![Photo of the RC car](https://github.com/kig/rpi-car-control/raw/master/doc/car_top_iso.jpg)
 
@@ -173,3 +173,4 @@ Take a look at `run.sh` first. It starts the web server and optionally the rever
 MIT
 
 Ilmari Heikkinen &copy; 2020
+Gergely Nagy &copy; 2024

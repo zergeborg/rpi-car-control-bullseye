@@ -13,7 +13,7 @@ if (window.JSMpeg) {
         } else {
             img.style.display = 'inline-block';
         }
-    }, 1000);
+    }, 3000);
 }
 
 var sensorsWs = null;

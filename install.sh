@@ -2,7 +2,7 @@
 
 sudo apt update
 
-sudo apt install -y nginx sox libsox-fmt-mp3 rws ffmpeg gstreamer1.0-plugins-good gstreamer1.0-tools
+sudo apt install --reinstall -y nginx sox libsox-fmt-mp3 ffmpeg gstreamer1.0-plugins-good gstreamer1.0-tools
 
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 sudo cp etc/nginx.conf /etc/nginx/sites-available/default
@@ -46,11 +46,11 @@ sudo pip3.6 install rpi.gpio
 sudo pip3.6 install websockets
 sudo pip3.6 install smbus2
 sudo pip3.6 install vl53l1x
-sudo pip3.6 install Adafruit_DHT
+sudo pip3.6 install Adafruit_DHT --install-option="--force-pi"
 
 (
   # Install Rust
-  curl https://sh.rustup.rs -sSf | sh
+  curl https://sh.rustup.rs -sSf | sh -s -- -y
   . ~/.cargo/env 
 
   # Clone the raspivid_mjpeg_server repo and build and install the server

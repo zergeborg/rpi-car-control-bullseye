@@ -5,7 +5,7 @@ trap "echo Exiting...; pkill -P $$; exit 0" SIGINT SIGTERM SIGHUP
 . /etc/rpi-car-control/env.sh
 
 sudo mkdir -p /var/run/car
-sudo chown pi /var/run/car
+sudo chown $(whoami) /var/run/car
 
 cd $(dirname "$0")
 
